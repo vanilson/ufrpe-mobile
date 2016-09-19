@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Fuel Calc</string>
+    <string name="gasolina">Gas </string>
+    <string name="alcool">Ethanol:</string>
+    <string name="calc">Calculate!</string>
+    <string name="error">Holy shit!</string>
+    <string name="melhor">is the best choice!</string>
+    <string name="hi">Hi</string>
+</resources>

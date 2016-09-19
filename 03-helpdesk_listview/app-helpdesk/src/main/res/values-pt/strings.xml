@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">DEINFO - Suporte</string>
+    <string name="course_bcc">BCC - Bacharelado em Ciência da Computação</string>
+    <string name="course_bsi">BSI - Bacharelado em Sistema de Informação</string>
+    <string name="course_lc">LC - Licenciatura em Computação</string>
+    <string name="str_course">Curso</string>
+    <string name="str_student">Estudante</string>
+    <string name="str_request">Solictação</string>
+    <string name="str_send">Enviar</string>
+    <string name="str_select">Selecionar</string>
+    <string name="str_resume">Resumo da sua solicitação</string>
+
+
+    <!-- String array usando outras strings como elementos -->
+    <string-array name="courses">
+        <item>@string/course_bcc</item>
+        <item>@string/course_bsi</item>
+        <item>@string/course_lc</item>
+    </string-array>
+
+</resources>

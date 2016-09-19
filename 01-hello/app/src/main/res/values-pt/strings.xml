@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Alô</string>
+    <string name="name_label">Nome:</string>
+    <string name="say_hello">Diga Oi!</string>
+    <string name="hi">Oi </string>
+    <string name="gasolina">Gasolina:</string>
+    <string name="alcool">Alcool:</string>
+    <string name="calc">Calcular!</string>
+    <string name="error">Deu bronca!</string>
+    <string name="melhor">é o melhor!</string>
+</resources>
