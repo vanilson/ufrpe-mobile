@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Intents</string>
+    <string-array name="acoes">
+        <item>Abrir o Browser</item>
+        <item>Efetuar uma chamada</item>
+        <item>Abrir Mapa</item>
+        <item>Tocar uma música</item>
+        <item>Enviar SMS</item>
+        <item>Compartilhar</item>
+        <item>Configurar Alarme</item>
+        <item>Buscar na web</item>
+        <item>Configurações</item>
+        <item>Executar Ação customizada 1</item>
+        <item>Executar Ação customizada 2</item>
+        <item>Sair</item>
+    </string-array>
+    <string name="erro_intent">Ação não suportada.</string>
+</resources>
