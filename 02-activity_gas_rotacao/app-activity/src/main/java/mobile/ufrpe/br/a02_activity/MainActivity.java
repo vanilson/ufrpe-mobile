@@ -23,8 +23,10 @@ public class MainActivity extends ActionBarActivity
 
         Button button = (Button) findViewById(R.id.button);
         button.setOnClickListener(this);
+
         Button buttonTela2 = (Button) findViewById(R.id.button2);
         buttonTela2.setOnClickListener(this);
+
         Button buttonTela2Parcelable = (Button) findViewById(R.id.button3);
         buttonTela2Parcelable.setOnClickListener(this);
 
@@ -32,17 +34,21 @@ public class MainActivity extends ActionBarActivity
 
     @Override
     public void onClick(View view) {
+
         switch (view.getId()) {
+
             case R.id.button:
                 String texto = edtTexto.getText().toString();
                 Toast.makeText(this, texto, Toast.LENGTH_SHORT).show();
                 break;
+
             case R.id.button2:
                 Intent it = new Intent(this, Tela2Activity.class);
                 it.putExtra("nome", "Vanilson");
                 it.putExtra("idade", 26);
                 startActivity(it);
                 break;
+
             case R.id.button3:
                 Cliente cliente = new Cliente(1, "Vanilson");
                 Intent intent = new Intent(this, Tela2Activity.class);
