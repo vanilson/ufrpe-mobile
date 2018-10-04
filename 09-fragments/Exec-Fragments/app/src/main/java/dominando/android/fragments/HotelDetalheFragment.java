@@ -15,8 +15,10 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 
 public class HotelDetalheFragment extends Fragment {
+
     public static final String TAG_DETALHE = "tagDetalhe";
     private static final String EXTRA_HOTEL = "hotel";
+
     TextView mTextNome;
     TextView mTextEndereco;
     RatingBar mRatingEstrelas;

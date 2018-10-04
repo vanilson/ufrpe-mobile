@@ -16,6 +16,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".AcaoActivity" >
             <intent-filter>
@@ -23,10 +24,12 @@
                 <category android:name="android.intent.category.DEFAULT"/>
                 <data android:scheme="produto"/>
             </intent-filter>
+
             <intent-filter>
-            <action android:name="ufrpe.mobile.ACAO_CUSTOMIZADA"/>
-            <category android:name="android.intent.category.DEFAULT"/>
-        </intent-filter>
+                <action android:name="ufrpe.mobile.ACAO_CUSTOMIZADA"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+
         </activity>
     </application>
 

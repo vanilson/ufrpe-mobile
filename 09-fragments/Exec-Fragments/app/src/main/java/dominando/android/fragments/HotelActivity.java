@@ -19,7 +19,7 @@ import android.view.View;
 public class HotelActivity extends AppCompatActivity implements HotelListFragment.AoClicarNoHotel,
         SearchView.OnQueryTextListener,
         MenuItemCompat.OnActionExpandListener,
-        HotelDialogFragment.AoSalvarHotel{
+        HotelDialogFragment.AoSalvarHotel {
 
     private FragmentManager mFragmentManager;
     private HotelListFragment mListFragment;
@@ -32,15 +32,42 @@ public class HotelActivity extends AppCompatActivity implements HotelListFragmen
         mListFragment = (HotelListFragment) mFragmentManager.findFragmentById(R.id.fragmentLista);
     }
 
+//    public void clicouNoHotel(Hotel hotel) {
+//            // TODO: if for um tablet, crie uma instancia do HotelDetalgeFragment e utilize o FragmentTransaction para substituir o fragment
+//            // TODO: if for smatphone, chame a activity
+//    }
+
+
     public void clicouNoHotel(Hotel hotel) {
-            // TODO: if for um tablet, crie uma instancia do HotelDetalgeFragment e utilize o FragmentTransaction para substituir o fragment
-            // TODO: if for smatphone, chame a activity
+
+        if (isTablet()) {
+            HotelDetalheFragment fragment = HotelDetalheFragment.novaInstancia(hotel);
+            FragmentTransaction ft = mFragmentManager.beginTransaction();
+            ft.replace(R.id.detalhe, fragment, HotelDetalheFragment.TAG_DETALHE);
+            ft.commit();
+
+        } else {
+
+            Intent it = new Intent(this, HotelDetalheActivity.class);
+            it.putExtra(HotelDetalheActivity.EXTRA_HOTEL, hotel);
+            startActivity(it);
+        }
     }
 
+    private boolean isTablet() {
+
+        return getResources().getBoolean(R.bool.tablet);
+    }
+
+    private boolean isSmartphone() {
+        return getResources().getBoolean(R.bool.smartphone);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+
         getMenuInflater().inflate(R.menu.menu_hotel, menu);
+
         MenuItem searchItem = menu.findItem(R.id.action_search);
         SearchView searchView = (SearchView)
                 MenuItemCompat.getActionView(searchItem);

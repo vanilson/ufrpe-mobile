@@ -19,8 +19,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-public class HotelListFragment extends ListFragment
-        implements ActionMode.Callback, AdapterView.OnItemLongClickListener {
+public class HotelListFragment extends ListFragment implements ActionMode.Callback, AdapterView.OnItemLongClickListener {
     ListView mListView;
     ActionMode mActionMode;
 

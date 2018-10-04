@@ -2,6 +2,7 @@ package mobile.ufrpe.br.a00_myfirstapp;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,8 +24,10 @@ public class MainActivity extends AppCompatActivity {
         btnSayHello.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Hello " + edtName.getText().toString(), Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this, getString(R.string.hello) + " " + edtName.getText().toString() + "!!!", Toast.LENGTH_LONG).show();
             }
         });
+
+
     }
 }

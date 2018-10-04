@@ -46,34 +46,40 @@ public class MainActivity extends ListActivity {
 
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id) {
+
         super.onListItemClick(l, v, position, id);
+
         Uri uri = null;
         Intent intent = null;
+
         switch (position) {
-            // Abrindo uma URL
+
+            // Abrir o Browser
             case 0:
                 uri = Uri.parse("http://www.vanilson.com");
                 intent = new Intent(Intent.ACTION_VIEW, uri);
                 dispararIntent(intent);
                 break;
-            // Realiza uma chamada
+
+            // Efetuar uma chamada
             case 1:
                 if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED){
-                    ActivityCompat.requestPermissions(this,
-                            new String[]{ Manifest.permission.CALL_PHONE }, 0);
+                    ActivityCompat.requestPermissions(this, new String[]{ Manifest.permission.CALL_PHONE }, 0);
                 } else {
                     discar();
                 }
 
                 break;
+
             // Pesquisa uma posição do mapa
             // !Seu emulador/aparelho deve possuir o Google Maps
             case 2:
-                uri = Uri.parse("geo:0,0?q=Rua+Amelia,Recife");
+                uri = Uri.parse("geo:0,0?q=UFRPE,Recife");
                 intent = new Intent(Intent.ACTION_VIEW, uri);
                 dispararIntent(intent);
                 break;
-            // Executa uma música do SDcard
+
+            // Executar uma música do SDcard
             case 3:
                 uri = Uri.parse("file:///mnt/sdcard/musica.mp3");
                 intent = new Intent()
@@ -81,21 +87,27 @@ public class MainActivity extends ListActivity {
                         .setDataAndType(uri,"audio/mp3");
                 dispararIntent(intent);
                 break;
-            // Abrindo o editor de SMS
+
+            // Abrir editor de SMS
             case 4:
                 uri = Uri.parse("sms:12345");
                 intent = new Intent(Intent.ACTION_VIEW, uri)
                         .putExtra("sms_body", "Corpo do SMS");
+
                 dispararIntent(intent);
+
                 break;
+
             // Compartilhar
             case 5:
                 intent = new Intent()
                         .setAction(Intent.ACTION_SEND)
                         .putExtra(Intent.EXTRA_TEXT, "Compartilhando via Intent.")
                         .setType("text/plain");
+
                 dispararIntent(intent);
                 break;
+
             // Alarme
             case 6:
                 // Os dias da semana que o alarme deve se repetir!
@@ -112,22 +124,26 @@ public class MainActivity extends ListActivity {
                         .putExtra(AlarmClock.EXTRA_DAYS, dias);
                 dispararIntent(intent);
                 break;
+
             // Busca na web
             case 7:
                 intent = new Intent(Intent.ACTION_SEARCH)
                         .putExtra(SearchManager.QUERY, "UFRPE");
                 dispararIntent(intent);
                 break;
+
             // Configurações do aparelho
             case 8:
                 intent = new Intent(Settings.ACTION_SETTINGS);
                 dispararIntent(intent);
                 break;
+
             // Ação customizada 1
             case 9:
                 intent = new Intent("ufrpe.mobile.ACAO_CUSTOMIZADA");
                 dispararIntent(intent);
                 break;
+
             // Ação customizada 2
             case 10:
                 uri = Uri.parse("produto://Notebook/Slim");

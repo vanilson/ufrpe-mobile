@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1048994452380",
+    "firebase_url": "https://primeiroprojeto-vaab.firebaseio.com",
+    "project_id": "primeiroprojeto-vaab",
+    "storage_bucket": "primeiroprojeto-vaab.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1048994452380:android:6da2a3ac1e72146d",
+        "android_client_info": {
+          "package_name": "mobile.ufrpe.br.firebase_demo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1048994452380-7ck11rq86ppl2siiabd6aafov5ahbetr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "mobile.ufrpe.br.firebase_demo",
+            "certificate_hash": "e46059aa8f15e643ff774dcabf174aebfdd532a2"
+          }
+        },
+        {
+          "client_id": "1048994452380-44shub6c0qo3d7k6hngg5fs15q0grfls.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-q4D7fSQkwbXCKg771c8E6jfoiIxm_6E"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1048994452380-44shub6c0qo3d7k6hngg5fs15q0grfls.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

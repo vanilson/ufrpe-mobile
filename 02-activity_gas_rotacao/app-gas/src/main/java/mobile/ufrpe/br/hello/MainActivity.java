@@ -9,11 +9,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity  {
     public static final int GAS = 1;
     public static final int ALC = 2;
     public static final int SHIT = 0;
-
 
     private TextView tvResultado;
     private EditText edtGas, edtAlc;
@@ -75,10 +74,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    @Override
-    public void onClick(View v) {
-
-    }
 
     @Override
     public void onSaveInstanceState(Bundle bundle) {

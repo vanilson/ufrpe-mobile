@@ -22,13 +22,14 @@ public class PessoaAdapter extends ArrayAdapter<Pessoa> {
         // 1 - Obtem o item de dado para esta posicao
         Pessoa Pessoa = getItem(position);
 
+
+        // 2 - inflate view
+//        convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_pessoa, null);
+
         // TODO  [performance] Verificar se a view existente está sendo reusada, caso contrario infla a view
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_pessoa, parent, false);
-      }
-
-        // 2 - inflate view
-//        View view = LayoutInflater.from(getContext()).inflate(R.layout.item_pessoa, null);
+        }
 
         // 3 - busca views do layout
         TextView tvName = (TextView) convertView.findViewById(R.id.tvName);
