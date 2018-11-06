@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Fuel App</string>
+    <string name="gasHint">Gas price</string>
+    <string name="ethanolHint">Ethanol price</string>
+    <string name="checkBestOption">Check best option</string>
+    <string name="gasBestOption">Gas is the best option!</string>
+    <string name="ethanolBestOption">Ethanol is the best option!</string>
+    <string name="gas">Gas</string>
+    <string name="ethanol">Ethanol</string>
+    <string name="fillPrices">Fill the prices</string>
+</resources>

@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">App Combustível</string>
+    <string name="gasHint">Valor da Gasolina</string>
+    <string name="ethanolHint">Valor do Álcool</string>
+    <string name="checkBestOption">Verificar melhor opção</string>
+    <string name="gasBestOption">Gasolina é a melhor opção!</string>
+    <string name="ethanolBestOption">Álcool é a melhor opção!</string>
+    <string name="ethanol">Álcool</string>
+    <string name="gas">Gasolina</string>
+    <string name="fillPrices">Preencha os preços!</string>
+</resources>

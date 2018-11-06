@@ -22,7 +22,8 @@ public class PessoaActivity extends AppCompatActivity {
 
 
         // posso passar o id de um layout meu, desde que seja um TextView
-//        mAdapter = new ArrayAdapter<Pessoa>(this, android.R.layout.simple_list_item_1, mPessoas);
+//        mAdapter = new ArrayAdapter<Pessoa>(this,
+//                R.layout.item_pessoa_simples, mPessoas);
 //
 //        mAdapter = new ArrayAdapter<Pessoa>(this, R.layout.item_pessoa_simples, mPessoas);
         mAdapter = new PessoaAdapter(this, mPessoas);

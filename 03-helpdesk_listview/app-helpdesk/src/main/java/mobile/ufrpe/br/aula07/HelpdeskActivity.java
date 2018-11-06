@@ -74,6 +74,7 @@ public class HelpdeskActivity extends AppCompatActivity {
     class TratadorEvento implements View.OnClickListener {
         @Override
         public void onClick(View v) {
+
             if (v.getId() == R.id.btnCourse) {
                 Intent it = new Intent(HelpdeskActivity.this, CourseActivity.class);
                 it.putExtra(Constants.EXTRA_COURSE, mSelectedCourse);

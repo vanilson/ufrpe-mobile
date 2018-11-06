@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Fragments(exc.)</string>
+    <string name="app_name">Cadastro de Hotéis</string>
 
     <string name="acao_pesquisar">Pesquisar</string>
     <string name="acao_novo">Novo</string>

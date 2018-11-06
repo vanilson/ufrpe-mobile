@@ -60,8 +60,7 @@ public class MainActivity extends AppCompatActivity  {
                     resultado = SHIT;
                 }
                 atualizarTextoResultado();
-            }
-        );
+            });
     }
 
     private void atualizarTextoResultado() {
