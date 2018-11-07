@@ -33,8 +33,8 @@ public class HotelActivity extends AppCompatActivity implements HotelListFragmen
     }
 
 //    public void clicouNoHotel(Hotel hotel) {
-//            // TODO: if for um tablet, crie uma instancia do HotelDetalgeFragment e utilize o FragmentTransaction para substituir o fragment
-//            // TODO: if for smatphone, chame a activity
+//            // TODO: se for um tablet, crie uma instancia do HotelDetalgeFragment e utilize o FragmentTransaction para substituir o fragment
+//            // TODO: se for smatphone, chame a activity
 //    }
 
 
