@@ -1,8 +1,6 @@
 package helloworld.teste.com.artigoandroidassincrono;
 
-/**
- * Created by ricardo on 29/07/2015.
- */
+
 public class Carro {
 
     public String nome;

@@ -74,18 +74,22 @@ public class MainActivityWithAsyncTask extends AppCompatActivity {
             try {
                 URL url = new URL("http://10.0.2.2:3000/carros");
                 HttpURLConnection con = (HttpURLConnection) url.openConnection();
+
                 InputStream is = con.getInputStream();
                 BufferedReader reader = null;
+
                 try {
                     reader = new BufferedReader(new InputStreamReader(is));
                     StringBuffer sBuffer = new StringBuffer();
                     String line = "";
+
                     while ((line = reader.readLine()) != null) {
                         sBuffer.append(line);
                     }
 
                     JSONObject obj = new JSONObject(sBuffer.toString());
                     JSONArray array = obj.getJSONArray("carros");
+
                     for (int i = 0; i < array.length(); i++) {
                         JSONObject objCarro = array.getJSONObject(i);
                         Carro carro = new Carro();
@@ -95,6 +99,7 @@ public class MainActivityWithAsyncTask extends AppCompatActivity {
                         carro.preco = (float)objCarro.getDouble("preco");
                         carros.add(carro);
                     }
+
                 } catch (IOException e) {
                     Log.e("CARROS_APP", "erro 1: "+e.getMessage());
                     e.printStackTrace();

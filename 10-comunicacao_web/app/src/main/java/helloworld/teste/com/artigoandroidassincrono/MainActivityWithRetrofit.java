@@ -69,21 +69,25 @@ public class MainActivityWithRetrofit extends AppCompatActivity {
     }
 
     public void fazRequisicao(){
+
         RestAdapter restAdapter = new RestAdapter.Builder()
                 .setEndpoint("http://10.0.2.2:3000")
                 .build();
+
         CarrosService service = restAdapter.create(CarrosService.class);
+
         service.listCarros(new Callback<CarrosContainer>(){
-            @Override
-            public void failure(RetrofitError error) {
-                Log.e("App-RetroFit", error.getMessage());
-                Toast.makeText(getApplicationContext(), "Erro ao obter dados: " + error.getMessage(), Toast.LENGTH_SHORT).show();
-                dialog.dismiss();
-            }
 
             @Override
             public void success(CarrosContainer c, retrofit.client.Response response) {
                 lView.setAdapter(new ArrayAdapter<Carro>(MainActivityWithRetrofit.this, android.R.layout.simple_list_item_1,c.carros));
+                dialog.dismiss();
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+                Log.e("App-RetroFit", error.getMessage());
+                Toast.makeText(getApplicationContext(), "Erro ao obter dados: " + error.getMessage(), Toast.LENGTH_SHORT).show();
                 dialog.dismiss();
             }
         });

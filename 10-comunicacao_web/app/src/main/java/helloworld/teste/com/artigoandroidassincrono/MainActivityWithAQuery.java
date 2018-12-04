@@ -3,7 +3,7 @@ package helloworld.teste.com.artigoandroidassincrono;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class MainActivityWithAQuery extends ActionBarActivity {
+public class MainActivityWithAQuery extends AppCompatActivity {
 
     private ListView lView;
     private ProgressDialog dialog;
@@ -46,7 +46,9 @@ public class MainActivityWithAQuery extends ActionBarActivity {
 
         if (id == R.id.miRefresh) {
             dialog = ProgressDialog.show(MainActivityWithAQuery.this, "Aviso", "Aguarde, buscando dados");
+
             AQuery aq = new AQuery(this);
+
             String url = "http://10.0.2.2:3000/carros";
             aq.ajax(url, JSONObject.class, retorno);
 
@@ -61,24 +63,28 @@ public class MainActivityWithAQuery extends ActionBarActivity {
     }
 
     private AjaxCallback<JSONObject> retorno = new AjaxCallback<JSONObject>(){
+
         @Override
         public void callback(String url, JSONObject json, AjaxStatus status) {
             if (json != null) {
                 List<Carro> carros = new ArrayList<Carro>();
                 try {
+
                     JSONArray array = json.getJSONArray("carros");
                     for (int i = 0; i < array.length(); i++) {
                         JSONObject objCarro = array.getJSONObject(i);
+
                         Carro carro = new Carro();
+
                         carro.nome = objCarro.getString("nome");
                         carro.ano = objCarro.getInt("ano");
                         carro.marca = objCarro.getString("marca");
                         carro.preco = (float) objCarro.getDouble("preco");
                         carros.add(carro);
                     }
-                    lView.setAdapter(new ArrayAdapter<Carro>(MainActivityWithAQuery.this, android.R.layout.simple_list_item_1,
-                            carros));
+                    lView.setAdapter(new ArrayAdapter<Carro>(MainActivityWithAQuery.this, android.R.layout.simple_list_item_1, carros));
                     dialog.dismiss();
+
                 }  catch (JSONException e) {}
             } else {}
         }

@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
@@ -24,7 +25,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class MainActivityWithVolley extends ActionBarActivity {
+public class MainActivityWithVolley extends AppCompatActivity {
 
     private ListView lView;
     private ProgressDialog dialog;
@@ -65,7 +66,8 @@ public class MainActivityWithVolley extends ActionBarActivity {
         RequestQueue queue = Volley.newRequestQueue(this);
         String url ="http://10.0.2.2:3000/carros";
 
-        JsonObjectRequest jsonRequest = new JsonObjectRequest(
+        JsonObjectRequest jsonRequest;
+        jsonRequest = new JsonObjectRequest(
                 Request.Method.GET,
                 url,
                 null,
@@ -73,17 +75,20 @@ public class MainActivityWithVolley extends ActionBarActivity {
 
                     @Override
                     public void onResponse(JSONObject json) {
+
                         if (json != null) {
                             List<Carro> carros = new ArrayList<Carro>();
                             try {
                                 JSONArray array = json.getJSONArray("carros");
                                 for (int i = 0; i < array.length(); i++) {
                                     JSONObject objCarro = array.getJSONObject(i);
+
                                     Carro carro = new Carro();
                                     carro.nome = objCarro.getString("nome");
                                     carro.ano = objCarro.getInt("ano");
                                     carro.marca = objCarro.getString("marca");
                                     carro.preco = (float) objCarro.getDouble("preco");
+
                                     carros.add(carro);
                                 }
                                 lView.setAdapter(new ArrayAdapter<Carro>(MainActivityWithVolley.this, android.R.layout.simple_list_item_1, carros));
