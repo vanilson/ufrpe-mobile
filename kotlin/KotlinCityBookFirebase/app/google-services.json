@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "397858555457",
+    "firebase_url": "https://kotlincitybookfirebase.firebaseio.com",
+    "project_id": "kotlincitybookfirebase",
+    "storage_bucket": "kotlincitybookfirebase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:397858555457:android:db396db673709b5e",
+        "android_client_info": {
+          "package_name": "mobile.vaab.kotlincitybookfirebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "397858555457-8kvs70p710bm1u97l5646vhro4vo9gmr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "mobile.vaab.kotlincitybookfirebase",
+            "certificate_hash": "0efec32507a19638a597f354656fcfbf0c7ac3a7"
+          }
+        },
+        {
+          "client_id": "397858555457-l1rgb9lr8a0n0ofq81t24q8t4hiibfvm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrfq45Bu7o7pc_KN93eVhoZFNLa502fG8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "397858555457-l1rgb9lr8a0n0ofq81t24q8t4hiibfvm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
