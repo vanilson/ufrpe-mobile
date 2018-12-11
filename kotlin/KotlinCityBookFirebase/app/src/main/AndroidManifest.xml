@@ -22,7 +22,8 @@
                 android:name=".ListActivity"
                 android:label="@string/title_activity_list">
         </activity>
-        <activity android:name=".UploadActivity">
+        <activity android:name=".UploadActivity"
+                  android:label="@string/title_upload_list">>
         </activity>
     </application>
 

@@ -20,12 +20,12 @@ import java.util.*
 
 class UploadActivity : AppCompatActivity() {
 
-    var selected : Uri? = null
-    var mAuth : FirebaseAuth? = null
-    var mAuthListener : FirebaseAuth.AuthStateListener? = null
-    var firebaseDatabase : FirebaseDatabase? = null
-    var myRef : DatabaseReference? = null
-    var mStorageRef : StorageReference? = null
+    var selected: Uri? = null
+
+    var mAuth: FirebaseAuth? = null
+    var firebaseDatabase: FirebaseDatabase? = null
+    var dbRef: DatabaseReference? = null
+    var mStorageRef: StorageReference? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,56 +33,62 @@ class UploadActivity : AppCompatActivity() {
 
         mAuth = FirebaseAuth.getInstance()
         firebaseDatabase = FirebaseDatabase.getInstance()
-        myRef = firebaseDatabase!!.reference
+        dbRef = firebaseDatabase!!.reference
         mStorageRef = FirebaseStorage.getInstance().reference
-
-
     }
 
 
-    fun upload(view : View) {
+    fun upload(view: View) {
 
         val uuid = UUID.randomUUID()
         val imageName = "images/$uuid.jpg"
 
         val storageReference = mStorageRef!!.child(imageName)
 
-        storageReference.putFile(selected!!).addOnSuccessListener { taskSnapshot ->
-            val downloadURL = taskSnapshot.uploadSessionUri.toString()
+        var uploadTask = storageReference.putFile(selected!!)
+
+        val uuidString = uuid.toString()
+
+        uploadTask.addOnSuccessListener { taskSnapshot ->
+
             val user = mAuth!!.currentUser
             val userEmail = user!!.email.toString()
             val userComment = commentText.text.toString()
 
-            val uuid = UUID.randomUUID()
-            val uuidString = uuid.toString()
+            dbRef!!.child("Posts").child(uuidString).child("userEmail").setValue(userEmail)
+            dbRef!!.child("Posts").child(uuidString).child("cityName").setValue(userComment)
 
-            myRef!!.child("Posts").child(uuidString).child("useremail").setValue(userEmail)
-            myRef!!.child("Posts").child(uuidString).child("comment").setValue(userComment)
-            myRef!!.child("Posts").child(uuidString).child("downloadurl").setValue(downloadURL)
-
-
-        }.addOnFailureListener { exception ->
-            if (exception!=null) {
-                Toast.makeText(applicationContext,exception.localizedMessage, Toast.LENGTH_LONG).show()
+            storageReference.getDownloadUrl().addOnSuccessListener { uri ->
+                dbRef!!.child("Posts").child(uuidString).child("imageUrl").setValue(uri.toString())
             }
-        }.addOnCompleteListener { task ->
-            if (task.isComplete) {
-                Toast.makeText(applicationContext,"City added", Toast.LENGTH_LONG).show()
 
-                val intent = Intent(applicationContext,ListActivity::class.java)
+        }
+
+        uploadTask.addOnFailureListener { exception ->
+            if (exception != null) {
+                Toast.makeText(applicationContext, exception.localizedMessage, Toast.LENGTH_LONG).show()
+            }
+
+        }
+
+        uploadTask.addOnCompleteListener { task ->
+            if (task.isComplete) {
+                Toast.makeText(applicationContext, "City added", Toast.LENGTH_LONG).show()
+
+                val intent = Intent(applicationContext, ListActivity::class.java)
                 startActivity(intent)
 
             }
         }
     }
 
-    fun selectImage(view : View){
+    fun selectImage(view: View) {
 
         if (checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-            requestPermissions(arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE),1)
+            requestPermissions(arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE), 1)
         } else {
             val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-            startActivityForResult(intent,2)
+            startActivityForResult(intent, 2)
         }
 
     }
@@ -93,7 +99,7 @@ class UploadActivity : AppCompatActivity() {
         if (requestCode == 1) {
             if (grantResults.size > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-                startActivityForResult(intent,2)
+                startActivityForResult(intent, 2)
             }
         }
 
@@ -109,7 +115,7 @@ class UploadActivity : AppCompatActivity() {
 
             try {
 
-                val bitmap = MediaStore.Images.Media.getBitmap(this.contentResolver,selected)
+                val bitmap = MediaStore.Images.Media.getBitmap(this.contentResolver, selected)
                 imageView.setImageBitmap(bitmap)
 
 
